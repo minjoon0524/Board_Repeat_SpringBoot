@@ -5,6 +5,8 @@ import com.study.board_repeat.repository.BoardRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 //Service는  Repository에서 얻어온 정보를 바탕으로
 //자바 문법을 이용하여 가공 후 다시 Controller에게 정보를 보내는 곳입니다.
@@ -13,7 +15,11 @@ public class BoardService {
     private BoardRepository boardRepository;
     public void write(Board board){
         boardRepository.save(board);
+    }
 
+    public List<Board> boardList(){
+        //findAll : 테스트보드라는 클래스가 담긴 List를 반환하는것을 확인할수있다
+        return boardRepository.findAll();
     }
 }
 
