@@ -4,6 +4,8 @@ import com.study.board_repeat.entity.Board;
 import com.study.board_repeat.repository.BoardRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
 
@@ -21,5 +23,10 @@ public class BoardService {
         //findAll : 테스트보드라는 클래스가 담긴 List를 반환하는것을 확인할수있다
         return boardRepository.findAll();
     }
+
+    public Board boardView(Integer id){
+        return boardRepository.findById(id).get();
+    }
+
 }
 
