@@ -57,11 +57,14 @@ public class BoardController {
 
     @PostMapping("/board/update/{id}")
     public String boardUpdate(@PathVariable("id") Integer id, Board board){
+        //기존에 있던 글이 담겨져서 온다.
         Board boardTemp=boardService.boardView(id);
 
+        //기존에 있던 내용을 새로운 내용으로 덮어씌운다.
         boardTemp.setTitle(board.getTitle());
-        boardTemp.setContent(board.getContent());
+        boardTemp.setContent(board.getTitle());
 
+        //추가 → 수정한내용을 boardService의 write부분에 넣기
         boardService.write(boardTemp);
         return "redirect:/board/list" ;
 
