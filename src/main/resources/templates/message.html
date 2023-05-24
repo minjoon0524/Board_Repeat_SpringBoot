@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>메시지 띄우기</title>
+</head>
+<!--메시지 띄우기-->
+<script th:inline="javascript">
+  let message=[[${message}]];
+  alert(message);
+  location.replace([[${searchUrl}]]);
+</script>
+<body>
+
+</body>
+</html>
