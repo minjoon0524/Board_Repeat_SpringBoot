@@ -71,10 +71,10 @@ public class BoardController {
 
         //추가 → 수정한내용을 boardService의 write부분에 넣기
         boardService.write(boardTemp,file);
-        model.addAttribute("message","글수정이 완료되었습니다. ");
+        model.addAttribute("message","글수정이 완료되었습니다.");
         model.addAttribute("searchUrl","/board/list");
 
-        return "message" ;
+        return "message";
 
     }
 }
