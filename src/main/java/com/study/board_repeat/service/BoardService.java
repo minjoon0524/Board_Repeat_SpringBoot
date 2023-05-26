@@ -30,7 +30,7 @@ public class BoardService {
 
         board.setFilename(fileName);
 
-        board.setFilepath("\\src\\main\\resources\\static\\files"+fileName);
+        board.setFilepath("\\src\\main\\resources\\static\\files\\"+fileName);
 
         boardRepository.save(board);
 
