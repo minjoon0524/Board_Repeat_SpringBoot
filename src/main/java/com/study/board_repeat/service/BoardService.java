@@ -3,11 +3,12 @@ package com.study.board_repeat.service;
 import com.study.board_repeat.entity.Board;
 import com.study.board_repeat.repository.BoardRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.List;
 import java.util.UUID;
 
@@ -35,7 +36,13 @@ public class BoardService {
         boardRepository.save(board);
 
     }
-
+    public Page<Board> boardList(Pageable pageable){
+        //findAll : 테스트보드라는 클래스가 담긴 List를 반환하는것을 확인할수있다
+        return boardRepository.findAll(pageable);
+    }
+    public Page<Board> boardSearchList(String searchKeyword, Pageable pageable){
+        return boardRepository.findByTitleContaining(searchKeyword, pageable);
+    }
     public List<Board> boardList(){
         //findAll : 테스트보드라는 클래스가 담긴 List를 반환하는것을 확인할수있다
         return boardRepository.findAll();

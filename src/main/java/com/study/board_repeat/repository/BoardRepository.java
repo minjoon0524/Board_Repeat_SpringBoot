@@ -1,6 +1,8 @@
 package com.study.board_repeat.repository;
 
 import com.study.board_repeat.entity.Board;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -8,6 +10,7 @@ import org.springframework.stereotype.Repository;
 //어떤엔티티를 넣을것이냐, 엔티티의 id의 타입
 //JpaRepository<Board,Integer> entity=Board entity ID Type=Integer
 public interface BoardRepository extends JpaRepository<Board,Integer> {
+    Page<Board> findByTitleContaining(String searchKeyword, Pageable pageable);
 }
 //@Repository
 // Entity에 의해 생성된 DB에 접근하는 메서드(ex) findAll()) 들을 사용하기 위한 인터페이스이다.
